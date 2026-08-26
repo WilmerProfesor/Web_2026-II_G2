@@ -1,0 +1,37 @@
+p{
+    color:red; 
+}
+
+.atras{
+    font-size: 30px;
+    color:green;
+}
+
+#unico{
+    text-decoration: underline; 
+    color:blue;
+}
+
+img{
+    width: 150px;
+    height: 150px;    
+    border-radius: 50%;
+    box-shadow: 5px 5px 10px black;
+}
+/* ul{
+    list-style: none;
+    li{
+        display: inline-block;
+        border: 1px solid black;
+        padding: 50px;
+        margin: 0px 50px;
+        border-radius: 10px;
+        &:hover{
+            background-color: yellow;            
+            color:white;
+        }
+        a{            
+            text-decoration: none;
+        }
+    }
+} */
