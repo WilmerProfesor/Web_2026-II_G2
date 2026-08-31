@@ -1,0 +1,59 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    /* background-color: blue; */
+    width: 100vw;
+    height: 200vh;
+}
+
+#base{
+    margin: 100px;
+    width: 500px;
+    height: 500px;
+    border: 1px solid black;
+    /* background-color: red; */
+}
+
+.caja{
+    border: 1px solid black;
+    width: 100px;
+    height: 100px;
+    display: inline-block;
+}
+
+.enlace{
+    border: 1px solid black;
+    width: 100px;
+    height: 100px;
+    /* display: inline-block; */
+}
+
+h1{
+    /* border: 1px solid black; */
+    /* display: none; */
+}
+
+#caja2{
+    border: 3px solid red;
+    background-color: yellow;
+    /* ====== Posición relative ======= */
+    /* position: relative;
+    left: -50px;
+    top:50px; */
+    /* ====== Posición absolute ======= */
+    /* position: absolute;
+    left: 150px;
+    top:50px; */
+    /* ====== Posición fixed ======= */
+    /* position: fixed;
+    left: 150px;
+    top:50px; */
+    /* ====== Posición sticky ======= */
+    position: sticky;
+    left: 150px;
+    top:50px;
+}
