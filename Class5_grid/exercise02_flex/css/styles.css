@@ -1,0 +1,56 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body{
+    width: 100vw;
+    height: 100vh;    
+}
+
+header{
+    height: 25%;
+    width: 100%;
+    background-color: antiquewhite;
+}
+
+#container{
+    height: 75%;
+    width: 100%;
+    display: flex;
+}
+#container2{
+    height: 100%;
+    width: 75%;
+}
+aside{
+    height: 100%;
+    width: 25%;
+    background-color: rgb(250, 215, 215);
+}
+
+#container3{
+    height: 70%;
+    width: 100%; 
+    display: flex;   
+}
+
+nav{
+    height: 100%;
+    width: 50%;
+    background-color: blueviolet;
+}
+
+main{
+    height: 100%;
+    width: 50%;
+    background-color: rgb(43, 226, 144);
+}
+
+footer{
+    height: 30%;
+    width: 100%;
+    background-color: rgb(250, 215, 248);
+}
+
