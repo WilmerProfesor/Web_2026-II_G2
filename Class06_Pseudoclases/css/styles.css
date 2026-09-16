@@ -1,0 +1,21 @@
+ul{
+    list-style: none;
+    display: flex;
+    font-size: 3rem;
+}
+
+li{
+    margin: 20px;    
+    &:hover{
+        background-color: yellow;
+    }
+    a{
+        text-decoration: none;
+        border: solid 1px black;
+        padding: 20px;
+        border-radius: 10px;
+    }
+}
+
+
+
