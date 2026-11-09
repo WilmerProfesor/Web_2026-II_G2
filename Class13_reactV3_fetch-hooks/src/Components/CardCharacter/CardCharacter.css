@@ -1,0 +1,16 @@
+#cardContent{
+    padding: 20px;
+    border: solid 1px rgb(197, 194, 194);
+    height: 300px;
+    width: 200px;
+    border-radius: 10px;
+    background-color: orange;
+    &:hover{
+        background-color: rgb(244, 188, 85);
+    }
+    img{
+        max-width: 150px;
+        border-radius: 10px;
+        background-color: white;
+    }
+}
