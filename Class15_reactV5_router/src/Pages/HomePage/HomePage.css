@@ -1,0 +1,14 @@
+main{
+    width: 100%;
+    min-height: 400px;
+    background-color: rgb(0, 255, 13);
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 20px;
+    flex-wrap: wrap;
+    gap: 20px;
+    #link{
+        text-decoration: none;
+    }
+}

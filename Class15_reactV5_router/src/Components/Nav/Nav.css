@@ -1,0 +1,21 @@
+nav{
+    height: 60px;
+    ul{
+        height: 100%;
+        list-style: none;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 5px 20px;
+        background: black;
+        color: yellow;
+        li{        
+            margin: 0 20px;
+            #link{
+                color: yellow;
+                text-decoration: none;
+            }
+        }        
+    }
+    
+}

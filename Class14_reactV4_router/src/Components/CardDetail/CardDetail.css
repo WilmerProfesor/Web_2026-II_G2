@@ -1,0 +1,384 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;900&family=Cinzel+Decorative:wght@700&family=Marcellus&display=swap');
+
+:root {
+  --got-gold: #c5a059;
+  --got-gold-light: #f3e5ab;
+  --got-gold-dark: #6e5425;
+  --got-bg: #090a0f;
+  --got-surface-dark: #10131d;
+  --got-surface-card: #141724;
+  --got-border-gold: rgba(197, 160, 89, 0.4);
+  --got-text-main: #f0f2f5;
+  --got-text-muted: #8d95a5;
+}
+
+.got-detail-overlay {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem 1rem;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.got-detail-card {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  max-width: 960px;
+  min-height: 540px;
+  background: linear-gradient(135deg, var(--got-surface-dark) 0%, var(--got-surface-card) 100%);
+  border: 1px solid var(--got-border-gold);
+  border-radius: 16px;
+  box-shadow: 
+    0 30px 70px rgba(0, 0, 0, 0.95),
+    0 0 50px rgba(197, 160, 89, 0.15),
+    inset 0 0 40px rgba(0, 0, 0, 0.7);
+  overflow: hidden;
+  transition: box-shadow 0.4s ease;
+}
+
+.got-detail-card:hover {
+  box-shadow: 
+    0 35px 80px rgba(0, 0, 0, 0.98),
+    0 0 60px rgba(197, 160, 89, 0.25),
+    inset 0 0 50px rgba(0, 0, 0, 0.8);
+}
+
+/* Efecto de destello interactivo */
+.got-detail-glare {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 10;
+  mix-blend-mode: color-dodge;
+  transition: opacity 0.3s ease;
+}
+
+/* Esquinas heráldicas forjadas */
+.detail-corner {
+  position: absolute;
+  color: var(--got-gold);
+  font-size: 1.1rem;
+  opacity: 0.8;
+  z-index: 15;
+  pointer-events: none;
+  text-shadow: 0 0 8px rgba(197, 160, 89, 0.6);
+}
+
+.corner-tl { top: 8px; left: 8px; }
+.corner-tr { top: 8px; right: 8px; }
+.corner-bl { bottom: 8px; left: 8px; }
+.corner-br { bottom: 8px; right: 8px; }
+
+/* Botón de cierre opcional */
+.got-detail-close-btn {
+  position: absolute;
+  top: 14px;
+  right: 18px;
+  background: transparent;
+  border: 1px solid rgba(197, 160, 89, 0.3);
+  color: var(--got-gold);
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 20;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+}
+
+.got-detail-close-btn:hover {
+  background: var(--got-gold);
+  color: #090a0f;
+  box-shadow: 0 0 12px var(--got-gold);
+}
+
+/* ============================================================
+   SECCIÓN DE RETRATO (COLUMNA IZQUIERDA)
+   ============================================================ */
+.got-detail-portrait-section {
+  flex: 0 0 45%;
+  position: relative;
+  min-height: 480px;
+  padding: 1.5rem;
+  box-sizing: border-box;
+}
+
+.got-detail-img-frame {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: 440px;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid rgba(197, 160, 89, 0.35);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.7);
+}
+
+.got-detail-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  filter: contrast(1.1) brightness(0.92);
+  transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1), filter 0.5s ease;
+}
+
+.got-detail-card:hover .got-detail-img {
+  transform: scale(1.05);
+  filter: contrast(1.15) brightness(1);
+}
+
+.got-detail-img-vignette {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(16, 19, 29, 0.1) 0%,
+    rgba(16, 19, 29, 0.4) 60%,
+    rgba(9, 10, 15, 0.85) 100%
+  );
+  pointer-events: none;
+}
+
+.got-detail-crest-seal {
+  position: absolute;
+  bottom: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: rgba(9, 10, 15, 0.85);
+  backdrop-filter: blur(8px);
+  border: 1.5px solid var(--got-gold);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.8);
+}
+
+.seal-rune {
+  font-size: 1.6rem;
+  filter: drop-shadow(0 0 6px rgba(197, 160, 89, 0.5));
+}
+
+/* ============================================================
+   SECCIÓN DE INFORMACIÓN (COLUMNA DERECHA)
+   ============================================================ */
+.got-detail-info-section {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 3rem 2.5rem 2rem 1.5rem;
+  box-sizing: border-box;
+}
+
+.got-detail-header {
+  margin-bottom: 0.5rem;
+}
+
+.family-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 5px 14px;
+  border-radius: 20px;
+  background: rgba(197, 160, 89, 0.08);
+  border: 1px solid rgba(197, 160, 89, 0.25);
+  margin-bottom: 1rem;
+}
+
+.badge-text {
+  font-family: 'Cinzel', serif;
+  font-size: 0.78rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--got-gold);
+}
+
+.badge-sparkle {
+  color: var(--got-gold);
+  font-size: 0.65rem;
+}
+
+.got-detail-name {
+  font-family: 'Cinzel Decorative', 'Cinzel', serif;
+  font-size: 2.3rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0 0 0.5rem 0;
+  letter-spacing: 0.03em;
+  line-height: 1.15;
+  text-shadow: 0 2px 14px rgba(0, 0, 0, 0.8);
+}
+
+.got-detail-honorific {
+  font-family: 'Marcellus', serif;
+  font-size: 1.05rem;
+  color: var(--got-text-muted);
+  margin: 0;
+  line-height: 1.5;
+  font-style: italic;
+}
+
+/* Divisor heráldico */
+.got-detail-divider {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 1.5rem 0;
+}
+
+.detail-line {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    rgba(197, 160, 89, 0.4),
+    rgba(197, 160, 89, 0.05)
+  );
+}
+
+.got-detail-divider .detail-line:first-child {
+  background: linear-gradient(
+    90deg,
+    rgba(197, 160, 89, 0.05),
+    rgba(197, 160, 89, 0.4)
+  );
+}
+
+.detail-sigil {
+  color: var(--got-gold);
+  font-size: 0.95rem;
+  transform: rotate(45deg);
+}
+
+/* Bloques de cuerpo de datos */
+.got-detail-body {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.chronicle-block {
+  background: rgba(255, 255, 255, 0.02);
+  border-left: 2px solid var(--got-gold);
+  padding: 10px 14px;
+  border-radius: 0 8px 8px 0;
+}
+
+.chronicle-label {
+  display: block;
+  font-family: 'Cinzel', serif;
+  font-size: 0.7rem;
+  color: var(--got-gold);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+
+.chronicle-text {
+  font-family: 'Marcellus', serif;
+  font-size: 0.92rem;
+  line-height: 1.6;
+  color: #cfd4dc;
+  margin: 0;
+}
+
+.chronicle-text strong {
+  color: #ffffff;
+}
+
+.got-attribute-pills {
+  display: flex;
+  gap: 12px;
+  margin-top: 0.5rem;
+}
+
+.attr-pill {
+  flex: 1;
+  background: rgba(16, 19, 29, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 8px;
+  padding: 8px 12px;
+  display: flex;
+  flex-direction: column;
+}
+
+.attr-title {
+  font-family: 'Cinzel', serif;
+  font-size: 0.65rem;
+  color: var(--got-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.attr-value {
+  font-family: 'Cinzel', serif;
+  font-size: 0.9rem;
+  color: var(--got-text-main);
+  font-weight: 600;
+  margin-top: 2px;
+}
+
+/* Pie de tarjeta */
+.got-detail-footer {
+  margin-top: 2rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  text-align: center;
+}
+
+.footer-runes {
+  font-family: 'Cinzel', serif;
+  font-size: 0.72rem;
+  letter-spacing: 0.25em;
+  color: rgba(197, 160, 89, 0.55);
+}
+
+/* ============================================================
+   RESPONSIVO (MÓVILES Y PANTALLAS MENORES A 768px)
+   ============================================================ */
+@media (max-width: 768px) {
+  .got-detail-card {
+    flex-direction: column;
+    max-width: 440px;
+    min-height: auto;
+  }
+
+  .got-detail-portrait-section {
+    flex: none;
+    width: 100%;
+    min-height: 320px;
+    height: 320px;
+    padding: 1rem;
+  }
+
+  .got-detail-img-frame {
+    min-height: 100%;
+  }
+
+  .got-detail-info-section {
+    padding: 1.25rem 1.25rem 1.5rem;
+  }
+
+  .got-detail-name {
+    font-size: 1.7rem;
+  }
+
+  .got-detail-honorific {
+    font-size: 0.92rem;
+  }
+
+  .got-attribute-pills {
+    flex-direction: column;
+    gap: 8px;
+  }
+}

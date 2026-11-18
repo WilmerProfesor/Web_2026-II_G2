@@ -1,0 +1,17 @@
+article{
+    width: 200px;
+    height: 300px;
+    border-radius: 10px;
+    border: solid 1px gray;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: column;
+    color: black;
+    background-color: gray;
+    img{
+        width: 80%;
+        border-radius: 10px;
+        height: 50%;
+    }
+}

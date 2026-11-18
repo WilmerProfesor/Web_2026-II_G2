@@ -1,0 +1,10 @@
+#categoryPage{
+    width: 100%;
+    min-height: 400px;
+    background-color: red;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 20px;
+    flex-wrap: wrap;
+}

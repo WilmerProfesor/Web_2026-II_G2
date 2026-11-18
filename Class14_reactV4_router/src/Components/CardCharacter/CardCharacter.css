@@ -1,0 +1,272 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;900&family=Marcellus&display=swap');
+
+:root {
+  --got-gold: #c5a059;
+  --got-gold-light: #f3e5ab;
+  --got-gold-dark: #6e5425;
+  --got-dark-bg: #090a0f;
+  --got-surface: #12151e;
+  --got-border: #2c2f3d;
+  --got-text-main: #e6e6e6;
+  --got-text-muted: #8d95a5;
+  --got-alive: #2ecc71;
+  --got-dead: #e74c3c;
+}
+
+.got-card-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2.5rem 1rem;
+}
+
+.got-card {
+  position: relative;
+  width: 360px;
+  min-height: 580px;
+  border-radius: 18px;
+  background: var(--got-surface);
+  border: 1px solid rgba(197, 160, 89, 0.35);
+  box-shadow: 
+    0 20px 40px rgba(0, 0, 0, 0.8),
+    0 0 25px rgba(197, 160, 89, 0.15);
+  transition: transform 0.12s cubic-bezier(0.2, 0, 0.2, 1), box-shadow 0.3s ease;
+  transform-style: preserve-3d;
+  cursor: pointer;
+  overflow: hidden;
+  user-select: none;
+}
+
+.got-card:hover {
+  box-shadow: 
+    0 25px 50px rgba(0, 0, 0, 0.9),
+    0 0 35px rgba(197, 160, 89, 0.35);
+}
+
+/* Efecto de destello metálico */
+.got-glare {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 10;
+  mix-blend-mode: color-dodge;
+  transition: opacity 0.3s ease;
+}
+
+/* Marco interior con detalles de Poniente */
+.got-card-frame {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 14px;
+  box-sizing: border-box;
+}
+
+/* Adornos de esquina */
+.corner-ornament {
+  position: absolute;
+  color: var(--got-gold);
+  font-size: 0.75rem;
+  opacity: 0.7;
+  z-index: 4;
+}
+.top-left { top: 6px; left: 6px; }
+.top-right { top: 6px; right: 6px; }
+.bottom-left { bottom: 6px; left: 6px; }
+.bottom-right { bottom: 6px; right: 6px; }
+
+/* Contenedor de la Imagen */
+.got-image-wrapper {
+  position: relative;
+  width: 100%;
+  height: 250px;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid var(--got-border);
+}
+
+.got-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.7s cubic-bezier(0.25, 1, 0.5, 1), filter 0.5s ease;
+  filter: contrast(1.1) brightness(0.9);
+}
+
+.got-card:hover .got-image {
+  transform: scale(1.08);
+  filter: contrast(1.15) brightness(1);
+}
+
+.got-image-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(9, 10, 15, 0.1) 0%,
+    rgba(9, 10, 15, 0.85) 100%
+  );
+}
+
+/* Insignias e Iconos */
+.got-status-badge {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(9, 10, 15, 0.75);
+  backdrop-filter: blur(8px);
+  padding: 4px 10px;
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  font-family: 'Cinzel', serif;
+  font-size: 0.7rem;
+  letter-spacing: 0.05em;
+  color: var(--got-text-main);
+  text-transform: uppercase;
+}
+
+.status-indicator {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  box-shadow: 0 0 8px currentColor;
+}
+
+.status-indicator.vivo {
+  background-color: var(--got-alive);
+  color: var(--got-alive);
+}
+
+.status-indicator.muerto {
+  background-color: var(--got-dead);
+  color: var(--got-dead);
+}
+
+.got-sigil-icon {
+  position: absolute;
+  bottom: 10px;
+  right: 12px;
+  font-size: 1.8rem;
+  background: rgba(9, 10, 15, 0.7);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(197, 160, 89, 0.4);
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.6);
+}
+
+/* Sección de Contenido */
+.got-content {
+  padding: 1.25rem 0.5rem 0.5rem;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.got-house-tag {
+  font-family: 'Cinzel', serif;
+  font-size: 0.75rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--got-gold);
+  margin-bottom: 4px;
+}
+
+.got-name {
+  font-family: 'Cinzel', serif;
+  font-weight: 700;
+  font-size: 1.55rem;
+  margin: 0;
+  color: #ffffff;
+  letter-spacing: 0.03em;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.7);
+}
+
+.got-title {
+  font-family: 'Marcellus', serif;
+  font-size: 0.88rem;
+  color: var(--got-text-muted);
+  margin: 4px 0 12px;
+  font-style: italic;
+}
+
+.got-quote {
+  font-family: 'Marcellus', serif;
+  font-size: 0.85rem;
+  line-height: 1.4;
+  color: #d1d5db;
+  margin: 0 0 14px 0;
+  padding-left: 10px;
+  border-left: 2px solid var(--got-gold-dark);
+}
+
+/* Separador de Espadas */
+.got-divider {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 14px;
+}
+
+.divider-line {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(
+    to right,
+    transparent,
+    rgba(197, 160, 89, 0.4),
+    transparent
+  );
+}
+
+.divider-gem {
+  color: var(--got-gold);
+  font-size: 0.85rem;
+  transform: rotate(45deg);
+}
+
+/* Metadatos */
+.got-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  margin: auto 0 0 0;
+  padding-top: 8px;
+}
+
+.stat-item {
+  display: flex;
+  flex-direction: column;
+  background: rgba(255, 255, 255, 0.03);
+  padding: 8px 6px;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  text-align: center;
+}
+
+.stat-item dt {
+  font-family: 'Cinzel', serif;
+  font-size: 0.65rem;
+  color: var(--got-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 2px;
+}
+
+.stat-item dd {
+  font-family: 'Marcellus', serif;
+  font-size: 0.78rem;
+  color: var(--got-text-main);
+  margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
